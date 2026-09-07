@@ -46,30 +46,73 @@ const CATEGORIES = [
 
 const projects = [
   {
-    id: "metahuman-groom",
+    id: "medium-twists",
     category: "grooms",
-    title: "MetaHuman Real-Time Character Groom",
+    title: "Medium Twists",
     description:
-      "Realistic MetaHuman-compatible character grooms created in XGen and FiberShop, rendered across Marmoset Toolbag and Unreal Engine 5.",
-    tags: ["XGen", "FiberShop", "Unreal Engine 5", "Marmoset Toolbag"],
-    cover: "media/grooms/hair_groom_preview.mp4",
+      "High-fidelity, real-time groom created in Maya XGen and fully integrated into Unreal Engine 5 and Marmoset Toolbag 5. Works parametrically for seamless fit and dynamic deformation across standard MetaHuman head rigs.",
+    tags: ["XGen", "Unreal Engine 5", "Marmoset Toolbag"],
+    cover: "media/grooms/medium-twists/strand.png",
     ratio: "3 / 4",
     breakdown: [
-      { label: "Lit render", src: "media/grooms/lit_render.jpg" },
-      { label: "Clay pass", src: "media/grooms/clay_pass.jpg" },
-      { label: "Hair cards / wireframe", src: "media/grooms/wireframe.jpg" },
+      { label: "Video", src: "media/grooms/medium-twists/video.mp4" },
+      { label: "Reference", src: "media/grooms/medium-twists/reference.png" },
+      { label: "Strands", src: "media/grooms/medium-twists/strand.png" },
+      { label: "Cards", src: "media/grooms/medium-twists/cards.png" },
+      { label: "Wireframe", src: "media/grooms/medium-twists/wireframe.png" },
     ],
   },
   {
-    id: "stylized-fungi",
+    id: "medium-sponge-twists",
+    category: "grooms",
+    title: "Medium Sponge Twists",
+    description:
+      "High-fidelity, real-time strands created in Maya XGen and fully integrated into Unreal Engine 5 and Marmoset Toolbag 5. Works parametrically for seamless fit and dynamic deformation across standard MetaHuman head rigs.",
+    tags: ["XGen", "Unreal Engine 5", "Marmoset Toolbag"],
+    cover: "media/grooms/medium-sponge-twists/strand.png",
+    ratio: "3 / 4",
+    breakdown: [
+      { label: "Video", src: "media/grooms/medium-sponge-twists/video.mp4" },
+      { label: "Strand picture", src: "media/grooms/medium-sponge-twists/strand.png" },
+    ],
+  },
+  {
+    id: "fungi-props",
     category: "props",
-    title: "Stylized Fungi Props",
+    title: "Fungi Props",
     description:
       "Painterly, hand-crafted environment props created in Maya and Substance Painter for Unity.",
     tags: ["Maya", "Substance Painter", "Unity"],
-    cover: "media/props/stylized_fungi.jpg",
+    cover: "media/props/fungi/cover.png",
     ratio: "4 / 5",
-    breakdown: [],
+    breakdown: [
+      { label: "Cover", src: "media/props/fungi/cover.png" },
+      { label: "Lantern", src: "media/props/fungi/lantern.jpg" },
+      { label: "House", src: "media/props/fungi/house.jpg" },
+      { label: "Clock", src: "media/props/fungi/clock.jpg" },
+    ],
+  },
+  {
+    id: "nba-clash",
+    category: "props",
+    title: "NBA Clash",
+    description:
+      "Stylized NBA uniform variants created for real-time character customization.",
+    tags: ["Maya", "Substance Painter", "Marmoset Toolbag"],
+    cover: "media/props/nba-clash/cover.jpg",
+    ratio: "3 / 4",
+    breakdown: [
+      { label: "Cover", src: "media/props/nba-clash/cover.jpg" },
+      { label: "_01", src: "media/props/nba-clash/01.jpg" },
+    ],
+    gallery: [
+      { label: "Cover", src: "media/props/nba-clash/cover.jpg" },
+      { label: "_01", src: "media/props/nba-clash/01.jpg" },
+      { label: "_02", src: "media/props/nba-clash/02.jpg" },
+      { label: "_03", src: "media/props/nba-clash/03.jpg" },
+      { label: "_04", src: "media/props/nba-clash/04.jpg" },
+      { label: "_05", src: "media/props/nba-clash/05.jpg" },
+    ],
   },
   {
     id: "beetle-vehicle",
@@ -78,9 +121,14 @@ const projects = [
     description:
       "Hard-surface vehicle asset optimized for real-time engines.",
     tags: ["Maya", "Substance Painter", "Hard surface"],
-    cover: "media/props/beetle_vehicle.jpg",
+    cover: "media/props/beetle/detail.jpg",
     ratio: "16 / 10",
-    breakdown: [],
+    breakdown: [
+      { label: "Video", src: "media/props/beetle/turnaround.mp4" },
+      { label: "Beauty", src: "media/props/beetle/beauty.jpg" },
+      { label: "Main Cam", src: "media/props/beetle/maincam.jpg" },
+      { label: "Detail", src: "media/props/beetle/detail.jpg" },
+    ],
   },
   {
     id: "panther-gauntlet",
@@ -89,9 +137,14 @@ const projects = [
     description:
       "High-detail cinematic prop featuring complex material channels and PBR texturing.",
     tags: ["ZBrush", "Substance Painter", "Marmoset Toolbag"],
-    cover: "media/props/panther_gauntlet.jpg",
+    cover: "media/props/panther-gauntlet/maincam.jpg",
     ratio: "1 / 1",
-    breakdown: [],
+    breakdown: [
+      { label: "Turnaround", src: "media/props/panther-gauntlet/turnaround.mp4" },
+      { label: "Ref", src: "media/props/panther-gauntlet/ref.png" },
+      { label: "Beauty", src: "media/props/panther-gauntlet/beauty.jpg" },
+      { label: "MainCam", src: "media/props/panther-gauntlet/maincam.jpg" },
+    ],
   },
   {
     id: "golden-armor",
@@ -100,9 +153,14 @@ const projects = [
     description:
       "High-poly ornate character armor pass sculpted in ZBrush with realistic metal shaders.",
     tags: ["ZBrush", "Marmoset Toolbag", "PBR"],
-    cover: "media/props/golden_armor.jpg",
+    cover: "media/props/golden-armor/detail.jpg",
     ratio: "3 / 4",
-    breakdown: [],
+    breakdown: [
+      { label: "Turnaround", src: "media/props/golden-armor/turnaround.mp4" },
+      { label: "Ref", src: "media/props/golden-armor/ref.png" },
+      { label: "Detail", src: "media/props/golden-armor/detail.jpg" },
+      { label: "Beauty01", src: "media/props/golden-armor/beauty01.jpg" },
+    ],
   },
   {
     id: "london-cafe",
@@ -111,9 +169,26 @@ const projects = [
     description:
       "Interior environment piece showcasing modular asset kits and atmospheric lighting.",
     tags: ["Maya", "Unreal Engine 5", "Modular kit"],
-    cover: "media/environments/london_cafe.jpg",
+    cover: "media/environments/cafe/main.jpg",
     ratio: "16 / 10",
-    breakdown: [],
+    breakdown: [
+      { label: "Main", src: "media/environments/cafe/main.jpg" },
+      { label: "Reference", src: "media/environments/cafe/reference.png" },
+      { label: "Chair", src: "media/environments/cafe/chair.jpg" },
+      { label: "Microwave", src: "media/environments/cafe/microwave.jpg" },
+    ],
+    gallery: [
+      { label: "Main", src: "media/environments/cafe/main.jpg" },
+      { label: "Reference", src: "media/environments/cafe/reference.png" },
+      { label: "Chair", src: "media/environments/cafe/chair.jpg" },
+      { label: "Microwave", src: "media/environments/cafe/microwave.jpg" },
+      { label: "02", src: "media/environments/cafe/02.jpg" },
+      { label: "03", src: "media/environments/cafe/03.jpg" },
+      { label: "04", src: "media/environments/cafe/04.jpg" },
+      { label: "05", src: "media/environments/cafe/05.jpg" },
+      { label: "Panini press", src: "media/environments/cafe/panini-press.jpg" },
+      { label: "Video", src: "media/environments/cafe/video.mp4" },
+    ],
   },
   {
     id: "london-street",
@@ -344,6 +419,18 @@ function ProjectCard({ project, onOpen }) {
 function Lightbox({ project, onClose, onPrev, onNext }) {
   const panelRef = useRef(null);
   const closeRef = useRef(null);
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  const gallery = project.gallery && project.gallery.length ? project.gallery : null;
+  const hero = gallery ? gallery[heroIndex] : null;
+
+  const stepHero = useCallback(
+    (dir) => {
+      if (!gallery) return;
+      setHeroIndex((i) => (i + dir + gallery.length) % gallery.length);
+    },
+    [gallery]
+  );
 
   useEffect(() => {
     const onKey = (e) => {
@@ -363,6 +450,7 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
 
   useEffect(() => {
     panelRef.current?.scrollTo({ top: 0 });
+    setHeroIndex(0);
   }, [project.id]);
 
   return (
@@ -412,13 +500,36 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
         </div>
 
         <div className="px-5 py-7 sm:px-8 sm:py-10">
-          <div className="overflow-hidden rounded-lg border border-white/10 bg-[#141417]">
+          <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#141417]">
             <Media
-              src={project.cover}
-              alt={project.title}
+              src={hero ? hero.src : project.cover}
+              alt={hero ? `${project.title} — ${hero.label}` : project.title}
               ratio={project.ratio}
               className="max-h-[62vh] object-contain"
             />
+            {gallery && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => stepHero(-1)}
+                  aria-label="Previous render"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-md border border-white/15 bg-black/50 px-2.5 py-1.5 text-sm text-white/80 backdrop-blur transition-colors hover:border-white/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  onClick={() => stepHero(1)}
+                  aria-label="Next render"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md border border-white/15 bg-black/50 px-2.5 py-1.5 text-sm text-white/80 backdrop-blur transition-colors hover:border-white/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]"
+                >
+                  →
+                </button>
+                <span className="absolute bottom-3 right-3 rounded-md bg-black/50 px-2 py-1 text-[0.7rem] text-white/70 backdrop-blur">
+                  {hero.label} · {heroIndex + 1}/{gallery.length}
+                </span>
+              </>
+            )}
           </div>
 
           <div className="mt-8 grid gap-8 md:grid-cols-[1.6fr_1fr]">
