@@ -258,12 +258,14 @@ function MediaSlot({ src, ratio, compact = false }) {
   );
 }
 
-function Media({ src, alt, ratio, className = "", compact = false, autoPlay = false }) {
+function Media({ src, alt, ratio, className = "", compact = false, autoPlay = false, fit = "cover" }) {
   const [failed, setFailed] = useState(false);
 
   useEffect(() => setFailed(false), [src]);
 
   if (failed) return <MediaSlot src={src} ratio={ratio} compact={compact} />;
+
+  const fitClass = fit === "contain" ? "object-contain" : "object-cover";
 
   if (isVideo(src)) {
     return (
@@ -277,7 +279,7 @@ function Media({ src, alt, ratio, className = "", compact = false, autoPlay = fa
         aria-label={alt}
         onError={() => setFailed(true)}
         style={{ aspectRatio: ratio }}
-        className={`w-full object-cover ${className}`}
+        className={`w-full ${fitClass} ${className}`}
       />
     );
   }
@@ -290,7 +292,7 @@ function Media({ src, alt, ratio, className = "", compact = false, autoPlay = fa
       decoding="async"
       onError={() => setFailed(true)}
       style={{ aspectRatio: ratio }}
-      className={`w-full object-cover ${className}`}
+      className={`w-full ${fitClass} ${className}`}
     />
   );
 }
@@ -519,12 +521,13 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
         </div>
 
         <div className="px-5 py-7 sm:px-8 sm:py-10">
-          <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#141417]">
+          <div className="relative flex items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-[#141417] p-3 sm:p-5">
             <Media
               src={hero ? hero.src : project.cover}
               alt={hero ? `${project.title} — ${hero.label}` : project.title}
               ratio={project.ratio}
-              className="max-h-[62vh] object-contain"
+              fit="contain"
+              className="max-h-[62vh]"
             />
             {gallery && (
               <>
