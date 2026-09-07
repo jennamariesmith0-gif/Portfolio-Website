@@ -39,9 +39,8 @@ const profile = {
 };
 
 const CATEGORIES = [
-  { id: "all", label: "All" },
   { id: "grooms", label: "Grooms" },
-  { id: "props", label: "Props & Environments" },
+  { id: "props", label: "Props & Environment" },
 ];
 
 const projects = [
@@ -87,9 +86,27 @@ const projects = [
     ratio: "4 / 5",
     breakdown: [
       { label: "Cover", src: "media/props/fungi/cover.png" },
-      { label: "Lantern", src: "media/props/fungi/lantern.jpg" },
-      { label: "House", src: "media/props/fungi/house.jpg" },
-      { label: "Clock", src: "media/props/fungi/clock.jpg" },
+      { label: "Clock", src: "media/props/fungi/clock.png" },
+      { label: "House", src: "media/props/fungi/house.png" },
+      { label: "Book Case", src: "media/props/fungi/bookcase.png" },
+      { label: "Book Case 02", src: "media/props/fungi/bookcase-02.png" },
+      { label: "Book Holder", src: "media/props/fungi/bookholder.png" },
+      { label: "Centerpiece", src: "media/props/fungi/centerpiece.png" },
+      { label: "Plant Stand", src: "media/props/fungi/plantstand.png" },
+      { label: "Toy Decor", src: "media/props/fungi/toydecor.png" },
+      { label: "Vase", src: "media/props/fungi/vase.png" },
+    ],
+    gallery: [
+      { label: "Cover", src: "media/props/fungi/cover.png" },
+      { label: "Clock", src: "media/props/fungi/clock.png" },
+      { label: "House", src: "media/props/fungi/house.png" },
+      { label: "Book Case", src: "media/props/fungi/bookcase.png" },
+      { label: "Book Case 02", src: "media/props/fungi/bookcase-02.png" },
+      { label: "Book Holder", src: "media/props/fungi/bookholder.png" },
+      { label: "Centerpiece", src: "media/props/fungi/centerpiece.png" },
+      { label: "Plant Stand", src: "media/props/fungi/plantstand.png" },
+      { label: "Toy Decor", src: "media/props/fungi/toydecor.png" },
+      { label: "Vase", src: "media/props/fungi/vase.png" },
     ],
   },
   {
@@ -160,6 +177,8 @@ const projects = [
       { label: "Ref", src: "media/props/golden-armor/ref.png" },
       { label: "Detail", src: "media/props/golden-armor/detail.jpg" },
       { label: "Beauty01", src: "media/props/golden-armor/beauty01.jpg" },
+      { label: "Beauty02", src: "media/props/golden-armor/beauty02.jpg" },
+      { label: "Beauty03", src: "media/props/golden-armor/beauty03.jpg" },
     ],
   },
   {
@@ -469,7 +488,7 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
       >
         <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-white/10 bg-[#111113]/90 px-5 py-3.5 backdrop-blur sm:px-8">
           <p className="truncate text-sm text-white/45">
-            {project.category === "grooms" ? "Grooms" : "Props & Environments"}
+            {project.category === "grooms" ? "Grooms" : "Props & Environment"}
           </p>
           <div className="flex items-center gap-2">
             <button
@@ -592,18 +611,17 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
 ------------------------------------------------------------------- */
 
 export default function App() {
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("grooms");
   const [activeId, setActiveId] = useState(null);
   const gridRef = useRef(null);
 
   const visible = useMemo(
-    () => (filter === "all" ? projects : projects.filter((p) => p.category === filter)),
+    () => projects.filter((p) => p.category === filter),
     [filter]
   );
 
   const counts = useMemo(
     () => ({
-      all: projects.length,
       grooms: projects.filter((p) => p.category === "grooms").length,
       props: projects.filter((p) => p.category === "props").length,
     }),
