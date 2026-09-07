@@ -19,6 +19,7 @@ const profile = {
     "Maya",
     "ZBrush",
     "Unreal Engine 5",
+    "MetaHuman",
     "Unity",
     "Substance Painter",
     "Marmoset Toolbag",
