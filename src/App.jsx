@@ -80,7 +80,7 @@ const projects = [
     category: "props",
     title: "Fungi Props",
     description:
-      "Painterly, hand-crafted environment props created in Maya and Substance Painter for Unity.",
+      "Modeled and Textures a suite of over 50 mobile-optimized environment and decor assets for House Flip by Fungi. The workflow focused on creating stylized, high-readability props while adhering to strict mobile engine budgets, optimized polycounts, and shared texture atlases to ensure seamless runtime performance",
     tags: ["Maya", "Substance Painter", "Unity"],
     cover: "media/props/fungi/cover.png",
     ratio: "4 / 5",
@@ -114,7 +114,7 @@ const projects = [
     category: "props",
     title: "NBA Clash",
     description:
-      "Stylized NBA uniform variants created for real-time character customization.",
+      "Textured stylized team uniforms for NBA Clash in 3D Coat. I translated real NBA branding onto low-poly character rigs, dialing in high-contrast textures so the teams looked sharp on small mobile screens. Focused heavily on UV efficiency and mobile optimization to keep draw calls low and performance locked.",
     tags: ["Maya", "Substance Painter", "Marmoset Toolbag"],
     cover: "media/props/nba-clash/cover.jpg",
     ratio: "3 / 4",
@@ -432,12 +432,16 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
   const closeRef = useRef(null);
   const [heroIndex, setHeroIndex] = useState(0);
 
-  const gallery = project.gallery && project.gallery.length ? project.gallery : null;
-  const hero = gallery ? gallery[heroIndex] : null;
+  const gallery =
+    project.gallery && project.gallery.length
+      ? project.gallery
+      : project.breakdown && project.breakdown.length
+      ? project.breakdown
+      : [{ label: project.title, src: project.cover }];
+  const hero = gallery[heroIndex] || gallery[0];
 
   const stepHero = useCallback(
     (dir) => {
-      if (!gallery) return;
       setHeroIndex((i) => (i + dir + gallery.length) % gallery.length);
     },
     [gallery]
@@ -513,34 +517,32 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
         <div className="px-5 py-7 sm:px-8 sm:py-10">
           <div className="relative flex items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-[#141417] p-3 sm:p-5">
             <Media
-              src={hero ? hero.src : project.cover}
-              alt={hero ? `${project.title} — ${hero.label}` : project.title}
+              src={hero.src}
+              alt={`${project.title} — ${hero.label}`}
               ratio={project.ratio}
               fit="contain"
               className="max-h-[62vh]"
             />
-            {gallery && (
-              <>
-                <button
-                  type="button"
-                  onClick={() => stepHero(-1)}
-                  aria-label="Previous render"
-                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-md border border-white/15 bg-black/50 px-2.5 py-1.5 text-sm text-white/80 backdrop-blur transition-colors hover:border-white/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]"
-                >
-                  ←
-                </button>
-                <button
-                  type="button"
-                  onClick={() => stepHero(1)}
-                  aria-label="Next render"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md border border-white/15 bg-black/50 px-2.5 py-1.5 text-sm text-white/80 backdrop-blur transition-colors hover:border-white/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]"
-                >
-                  →
-                </button>
-                <span className="absolute bottom-3 right-3 rounded-md bg-black/50 px-2 py-1 text-[0.7rem] text-white/70 backdrop-blur">
-                  {hero.label} · {heroIndex + 1}/{gallery.length}
-                </span>
-              </>
+            <button
+              type="button"
+              onClick={() => stepHero(-1)}
+              aria-label="Previous render"
+              className="absolute left-3 top-1/2 -translate-y-1/2 rounded-md border border-white/15 bg-black/50 px-2.5 py-1.5 text-sm text-white/80 backdrop-blur transition-colors hover:border-white/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => stepHero(1)}
+              aria-label="Next render"
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md border border-white/15 bg-black/50 px-2.5 py-1.5 text-sm text-white/80 backdrop-blur transition-colors hover:border-white/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]"
+            >
+              →
+            </button>
+            {gallery.length > 1 && (
+              <span className="absolute bottom-3 right-3 rounded-md bg-black/50 px-2 py-1 text-[0.7rem] text-white/70 backdrop-blur">
+                {hero.label} · {heroIndex + 1}/{gallery.length}
+              </span>
             )}
           </div>
 
