@@ -209,17 +209,6 @@ const projects = [
       { label: "Video", src: "media/environments/cafe/video.mp4" },
     ],
   },
-  {
-    id: "london-street",
-    category: "props",
-    title: "London Street",
-    description:
-      "Exterior urban environment created in Unreal Engine 5 focusing on world-building and showcasing modular asset kits.",
-    tags: ["Unreal Engine 5", "Gaea", "Modular kit"],
-    cover: "media/environments/london_street.jpg",
-    ratio: "16 / 9",
-    breakdown: [],
-  },
 ];
 
 /* ------------------------------------------------------------------

@@ -85,7 +85,6 @@ public/
       golden_armor.jpg
     environments/
       london_cafe.jpg
-      london_street.jpg
 ```
 
 Anything not yet in place renders as a labelled slot showing the expected path, so the layout stays intact while you fill the gallery.
