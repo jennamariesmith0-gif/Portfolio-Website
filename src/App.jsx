@@ -400,12 +400,13 @@ function ProjectCard({ project, onOpen }) {
       onClick={() => onOpen(project)}
       className="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-lg border border-white/10 bg-[#161618] text-left transition-colors duration-300 hover:border-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111113]"
     >
-      <span className="relative block overflow-hidden">
+      <span className="relative flex items-center justify-center overflow-hidden bg-[#141417] p-2.5">
         <Media
           src={project.cover}
           alt={project.title}
           ratio={project.ratio}
           autoPlay
+          fit="contain"
           className="transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transform-none motion-reduce:transition-none"
         />
         <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100" />
