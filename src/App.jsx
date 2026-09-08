@@ -82,9 +82,10 @@ const projects = [
     title: "Fungi Props",
     description:
       "Modeled and Textures a suite of over 50 mobile-optimized environment and decor assets for House Flip by Fungi. The workflow focused on creating stylized, high-readability props while adhering to strict mobile engine budgets, optimized polycounts, and shared texture atlases to ensure seamless runtime performance",
-    tags: ["Maya", "Substance Painter", "Unity"],
+    tags: ["Maya", "Substance Painter", "Unity", "Photoshop"],
     cover: "media/props/fungi/cover.png",
     ratio: "4 / 5",
+    hideBreakdownLabels: true,
     breakdown: [
       { label: "Cover", src: "media/props/fungi/cover.png" },
       { label: "Clock", src: "media/props/fungi/clock.png" },
@@ -116,12 +117,17 @@ const projects = [
     title: "NBA Clash",
     description:
       "Textured stylized team uniforms for NBA Clash in 3D Coat. I translated real NBA branding onto low-poly character rigs, dialing in high-contrast textures so the teams looked sharp on small mobile screens. Focused heavily on UV efficiency and mobile optimization to keep draw calls low and performance locked.",
-    tags: ["Maya", "Substance Painter", "Marmoset Toolbag"],
+    tags: ["Maya", "Substance Painter", "Marmoset Toolbag", "Photoshop"],
     cover: "media/props/nba-clash/cover.jpg",
     ratio: "3 / 4",
+    hideBreakdownLabels: true,
     breakdown: [
       { label: "Cover", src: "media/props/nba-clash/cover.jpg" },
       { label: "_01", src: "media/props/nba-clash/01.jpg" },
+      { label: "_02", src: "media/props/nba-clash/02.jpg" },
+      { label: "_03", src: "media/props/nba-clash/03.jpg" },
+      { label: "_04", src: "media/props/nba-clash/04.jpg" },
+      { label: "_05", src: "media/props/nba-clash/05.jpg" },
     ],
     gallery: [
       { label: "Cover", src: "media/props/nba-clash/cover.jpg" },
@@ -138,7 +144,7 @@ const projects = [
     title: "Beetle Vehicle",
     description:
       "Hard-surface vehicle asset optimized for real-time engines.",
-    tags: ["Maya", "Substance Painter", "Hard surface"],
+    tags: ["Maya", "Substance Painter", "Unreal Engine", "ZBrush"],
     cover: "media/props/beetle/detail.jpg",
     ratio: "16 / 10",
     breakdown: [
@@ -170,7 +176,7 @@ const projects = [
     title: "Golden Armor",
     description:
       "High-poly ornate character armor pass sculpted in ZBrush with realistic metal shaders.",
-    tags: ["ZBrush", "Marmoset Toolbag", "PBR"],
+    tags: ["ZBrush", "Marmoset Toolbag", "Unreal Engine", "Maya"],
     cover: "media/props/golden-armor/detail.jpg",
     ratio: "3 / 4",
     breakdown: [
@@ -248,10 +254,24 @@ function MediaSlot({ src, ratio, compact = false }) {
   );
 }
 
-function Media({ src, alt, ratio, className = "", compact = false, autoPlay = false, fit = "cover" }) {
+function Media({ src, alt, ratio, className = "", compact = false, fit = "cover" }) {
   const [failed, setFailed] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => setFailed(false), [src]);
+
+  useEffect(() => {
+    // Some browsers ignore the autoplay attribute until muted is set as a
+    // DOM property (not just an attribute), which shows up as playback
+    // that never starts or stutters on the first loop.
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {});
+    }
+  }, [src]);
 
   if (failed) return <MediaSlot src={src} ratio={ratio} compact={compact} />;
 
@@ -260,12 +280,15 @@ function Media({ src, alt, ratio, className = "", compact = false, autoPlay = fa
   if (isVideo(src)) {
     return (
       <video
+        ref={videoRef}
         src={src}
+        autoPlay
         muted
         loop
         playsInline
-        autoPlay={autoPlay}
-        controls={!autoPlay}
+        preload="auto"
+        disablePictureInPicture
+        disableRemotePlayback
         aria-label={alt}
         onError={() => setFailed(true)}
         style={{ aspectRatio: ratio }}
@@ -395,7 +418,6 @@ function ProjectCard({ project, onOpen }) {
           src={project.cover}
           alt={project.title}
           ratio={project.ratio}
-          autoPlay
           fit="contain"
           className="transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transform-none motion-reduce:transition-none"
         />
@@ -588,9 +610,11 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
                     className="overflow-hidden rounded-lg border border-white/10 bg-[#141417]"
                   >
                     <Media src={pass.src} alt={pass.label} ratio="4 / 3" compact />
-                    <figcaption className="px-3.5 py-2.5 text-[0.8rem] text-white/55">
-                      {pass.label}
-                    </figcaption>
+                    {!project.hideBreakdownLabels && (
+                      <figcaption className="px-3.5 py-2.5 text-[0.8rem] text-white/55">
+                        {pass.label}
+                      </figcaption>
+                    )}
                   </figure>
                 ))}
               </div>
