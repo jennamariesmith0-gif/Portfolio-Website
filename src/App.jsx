@@ -221,6 +221,54 @@ const projects = [
       { label: "Video", src: "media/environments/cafe/video.mp4" },
     ],
   },
+  {
+    id: "frankies-bar",
+    category: "props",
+    title: "Frankie's Bar",
+    description:
+      "A stylized corner pub built as a real-time environment piece in Unreal Engine 5, featuring weathered brick masonry, warm exterior lighting, and hand-painted signage inspired by classic London pub architecture.",
+    tags: ["Maya", "Substance Painter", "Unreal Engine"],
+    cover: "media/props/frankies-bar/beauty.png",
+    ratio: "16 / 9",
+    breakdown: [
+      { label: "Beauty", src: "media/props/frankies-bar/beauty.png" },
+      { label: "Beauty 02", src: "media/props/frankies-bar/beauty-02.png" },
+      { label: "Reference", src: "media/props/frankies-bar/reference.png" },
+    ],
+  },
+  {
+    id: "london-postbox",
+    category: "props",
+    title: "London Postbox",
+    description:
+      "A hand-painted London postbox prop with layered wear, graffiti, and grime detail, sculpted and textured for real-time engines.",
+    tags: ["Maya", "Substance Painter", "ZBrush"],
+    cover: "media/props/london-postbox/beauty.png",
+    ratio: "16 / 9",
+    breakdown: [
+      { label: "Beauty", src: "media/props/london-postbox/beauty.png" },
+      { label: "Reference", src: "media/props/london-postbox/reference.png" },
+    ],
+  },
+  {
+    id: "london-street",
+    category: "props",
+    title: "London Street",
+    description:
+      "Exterior urban environment created in Unreal Engine 5 focusing on world-building and showcasing modular apartment and terraced-house asset kits.",
+    tags: ["Maya", "Unreal Engine 5", "Modular kit"],
+    cover: "media/environments/london-street/cover.webp",
+    ratio: "16 / 9",
+    breakdown: [
+      { label: "Apartment Building", src: "media/environments/london-street/cover.webp" },
+      { label: "Apartment Modular Pieces", src: "media/environments/london-street/apartment.webp" },
+      { label: "Apartment Wireframe", src: "media/environments/london-street/apartment-wireframe.webp" },
+      { label: "House Modular Pieces", src: "media/environments/london-street/house.webp" },
+      { label: "House Wireframe", src: "media/environments/london-street/house-wireframe.webp" },
+      { label: "Houses Front", src: "media/environments/london-street/houses-front.webp" },
+      { label: "Houses Back", src: "media/environments/london-street/houses-back.webp" },
+    ],
+  },
 ];
 
 /* ------------------------------------------------------------------
