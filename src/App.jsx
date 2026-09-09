@@ -9,9 +9,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 const profile = {
   name: "Jenna-Marie Smith",
   title: "3D Groom & Prop Artist",
-  tagline:
-    "3D Artist specializing in real-time hair grooming, production assets, and engine-ready pipelines.",
-  bio: "Specializing in high-fidelity hair grooms (XGen, FiberShop, UE5 strands, and hair cards) and production-ready environment and prop assets across both stylized and realistic art directions. Proven studio experience delivering optimized mobile assets for shipped titles.",
+  bio: "I specialize in hair grooms—both strands and cards using XGen, FiberShop, and UE5—along with real-time props and environments. I cover both stylized and realistic styles, with studio experience delivering optimized assets for shipped mobile games.",
   email: "jennamariesmith0@gmail.com",
   artstation: "https://jenna-marie.artstation.com/",
   linkedin: "https://linkedin.com/in/jenna-marie-smith-15b111303",
@@ -193,15 +191,22 @@ const projects = [
     category: "props",
     title: "London Cafe",
     description:
-      "Interior environment piece showcasing modular asset kits and atmospheric lighting.",
+      "Recreated a real-world London cafe in Unreal Engine 5 as an environment study. Check out the breakdowns below for some of the modular props and assets I made for the scene.",
     tags: ["Maya", "Unreal Engine 5", "Modular kit"],
     cover: "media/environments/cafe/main.jpg",
     ratio: "16 / 10",
+    hideBreakdownLabels: true,
     breakdown: [
       { label: "Main", src: "media/environments/cafe/main.jpg" },
       { label: "Reference", src: "media/environments/cafe/reference.png" },
       { label: "Chair", src: "media/environments/cafe/chair.jpg" },
       { label: "Microwave", src: "media/environments/cafe/microwave.jpg" },
+      { label: "02", src: "media/environments/cafe/02.jpg" },
+      { label: "03", src: "media/environments/cafe/03.jpg" },
+      { label: "04", src: "media/environments/cafe/04.jpg" },
+      { label: "05", src: "media/environments/cafe/05.jpg" },
+      { label: "Panini press", src: "media/environments/cafe/panini-press.jpg" },
+      { label: "Video", src: "media/environments/cafe/video.mp4" },
     ],
     gallery: [
       { label: "Main", src: "media/environments/cafe/main.jpg" },
@@ -325,9 +330,6 @@ function Sidebar() {
             Smith
           </h1>
           <p className="mt-3 text-sm text-[#C9A227]">{profile.title}</p>
-          <p className="mt-5 max-w-[46ch] text-[0.95rem] leading-relaxed text-white/60">
-            {profile.tagline}
-          </p>
         </header>
 
         <p className="max-w-[52ch] border-l border-white/10 pl-5 text-sm leading-[1.75] text-white/55">
