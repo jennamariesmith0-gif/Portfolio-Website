@@ -9,7 +9,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 const profile = {
   name: "Jenna-Marie Smith",
   title: "3D Groom & Prop Artist",
-  bio: "I specialize in hair grooms—both strands and cards using XGen, FiberShop, and UE5—along with real-time props and environments. I cover both stylized and realistic styles, with studio experience delivering optimized assets for shipped mobile games.",
+  bio: "I specialize in real-time hair grooms both strands and cards using XGen, FiberShop, and UE5 along with environment and prop assets. I work across stylized and realistic art directions, with studio experience delivering optimized assets for shipped mobile games.",
   email: "jennamariesmith0@gmail.com",
   artstation: "https://jenna-marie.artstation.com/",
   linkedin: "https://linkedin.com/in/jenna-marie-smith-15b111303",
@@ -77,7 +77,7 @@ const projects = [
   {
     id: "fungi-props",
     category: "props",
-    title: "Fungi Props",
+    title: "House Flip by Fungi",
     description:
       "Modeled and Textures a suite of over 50 mobile-optimized environment and decor assets for House Flip by Fungi. The workflow focused on creating stylized, high-readability props while adhering to strict mobile engine budgets, optimized polycounts, and shared texture atlases to ensure seamless runtime performance",
     tags: ["Maya", "Substance Painter", "Unity", "Photoshop"],
@@ -157,8 +157,8 @@ const projects = [
     category: "props",
     title: "Black Panther Gauntlet",
     description:
-      "High-detail cinematic prop featuring complex material channels and PBR texturing.",
-    tags: ["ZBrush", "Substance Painter", "Marmoset Toolbag"],
+      "A game-ready gauntlet asset based on concept art from The Art of Black Panther. Sculpted and textured with high detail PBR materials, optimized for real-time rendering",
+    tags: ["ZBrush", "Substance Painter", "Marmoset Toolbag", "Maya"],
     cover: "media/props/panther-gauntlet/maincam.jpg",
     ratio: "1 / 1",
     breakdown: [
@@ -199,14 +199,14 @@ const projects = [
     breakdown: [
       { label: "Main", src: "media/environments/cafe/main.jpg" },
       { label: "Reference", src: "media/environments/cafe/reference.png" },
-      { label: "Chair", src: "media/environments/cafe/chair.jpg" },
-      { label: "Microwave", src: "media/environments/cafe/microwave.jpg" },
       { label: "02", src: "media/environments/cafe/02.jpg" },
       { label: "03", src: "media/environments/cafe/03.jpg" },
       { label: "04", src: "media/environments/cafe/04.jpg" },
       { label: "05", src: "media/environments/cafe/05.jpg" },
-      { label: "Panini press", src: "media/environments/cafe/panini-press.jpg" },
       { label: "Video", src: "media/environments/cafe/video.mp4" },
+      { label: "Chair", src: "media/environments/cafe/chair.jpg" },
+      { label: "Microwave", src: "media/environments/cafe/microwave.jpg" },
+      { label: "Panini press", src: "media/environments/cafe/panini-press.jpg" },
     ],
     gallery: [
       { label: "Main", src: "media/environments/cafe/main.jpg" },
@@ -397,7 +397,6 @@ function Sidebar() {
           >
             {profile.email}
           </a>
-          <p className="mt-2">Open to groom and asset work.</p>
         </footer>
       </div>
     </aside>
