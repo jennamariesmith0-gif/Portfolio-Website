@@ -630,10 +630,31 @@ function Lightbox({ project, onClose, onPrev, onNext }) {
    GALLERY + PAGE
 ------------------------------------------------------------------- */
 
+const VISITOR_PING_KEY = "visitor-pinged";
+
 export default function App() {
   const [filter, setFilter] = useState("grooms");
   const [activeId, setActiveId] = useState(null);
   const gridRef = useRef(null);
+
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem(VISITOR_PING_KEY)) return;
+      sessionStorage.setItem(VISITOR_PING_KEY, "1");
+    } catch {
+      // sessionStorage unavailable (e.g. private browsing) — ping every load instead of crashing
+    }
+
+    fetch("/api/notify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        path: window.location.pathname,
+        referrer: document.referrer,
+      }),
+      keepalive: true,
+    }).catch(() => {});
+  }, []);
 
   const visible = useMemo(
     () => projects.filter((p) => p.category === filter),
