@@ -32,7 +32,6 @@ const profile = {
     "Environment design",
     "PBR texturing",
     "Mobile asset optimization",
-    "High-to-low poly workflows",
     "Engine integration (UE5 / Unity)",
   ],
 };
@@ -77,7 +76,7 @@ const projects = [
   {
     id: "fungi-props",
     category: "props",
-    title: "House Flip by Fungi",
+    title: "House Flip by FUN-GI GAMES",
     description:
       "Modeled and Textures a suite of over 50 mobile-optimized environment and decor assets for House Flip by Fungi. The workflow focused on creating stylized, high-readability props while adhering to strict mobile engine budgets, optimized polycounts, and shared texture atlases to ensure seamless runtime performance",
     tags: ["Maya", "Substance Painter", "Unity", "Photoshop"],
@@ -112,7 +111,7 @@ const projects = [
   {
     id: "nba-clash",
     category: "props",
-    title: "NBA Clash",
+    title: "NBA Clash By Nifty Games",
     description:
       "Textured stylized team uniforms for NBA Clash in 3D Coat. I translated real NBA branding onto low-poly character rigs, dialing in high-contrast textures so the teams looked sharp on small mobile screens. Focused heavily on UV efficiency and mobile optimization to keep draw calls low and performance locked.",
     tags: ["Maya", "Substance Painter", "Marmoset Toolbag", "Photoshop"],
