@@ -225,7 +225,7 @@ const projects = [
     category: "props",
     title: "Frankie's Bar",
     description:
-      "A stylized corner pub built as a real-time environment piece in Unreal Engine 5, featuring weathered brick masonry, warm exterior lighting, and hand-painted signage inspired by classic London pub architecture.",
+      "Recreated a classic London pub in Unreal Engine 5, matching the real-world reference as closely as possible. Focused on getting the brickwork, warm exterior lighting, and architectural details right for a realistic real-time scene.",
     tags: ["Maya", "Substance Painter", "Unreal Engine"],
     cover: "media/props/frankies-bar/beauty.png",
     ratio: "16 / 9",
@@ -240,7 +240,7 @@ const projects = [
     category: "props",
     title: "London Postbox",
     description:
-      "A hand-painted London postbox prop with layered wear, graffiti, and grime detail, sculpted and textured for real-time engines.",
+      "Created this postbox prop as an accent asset for an urban environment scene. Focused heavily on texturing in Substance Painter to get the layered paint wear, stickers, and graffiti looking natural",
     tags: ["Maya", "Substance Painter", "ZBrush"],
     cover: "media/props/london-postbox/beauty.png",
     ratio: "16 / 9",
